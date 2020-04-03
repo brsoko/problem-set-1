@@ -1,0 +1,50 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int get_height(string prompt);
+
+void repeat(char c, int times)
+{
+    while (true)
+    {
+        printf("%c", c);
+    }
+}
+
+int main()
+{ 
+    int height, width;
+    int n = 0;
+
+    do
+    {
+        n = get_height("Height: ");
+    }
+    while(true);
+
+    for (int i = 1; i <=  n; i++)
+    {
+       int num_hashes = i;
+       int num_spaces = width - num_hashes;
+
+       repeat(' ', num_spaces);
+       repeat('#', num_hashes);
+
+       printf(" ");
+
+       repeat('#', num_hashes);
+
+       printf("\n");
+    }
+}
+
+int get_height(string prompt)
+{
+    int n;
+    do
+    {
+        n = get_int("%s", prompt);
+    }
+    while (n > 8 || n < 1);
+    return n;
+}
